@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ФЛИК — передай с телефона на ПК за секунду</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; background: #0B1220; color: #e5e7eb; line-height: 1.6; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+  .hero { text-align: center; padding: 70px 20px 40px; }
+  .hero h1 { font-size: 64px; font-weight: 800; letter-spacing: -2px; }
+  .hero h1 span { color: #00E676; }
+  .hero p { font-size: 22px; color: #94a3b8; max-width: 620px; margin: 12px auto 32px; }
+  .cta-group { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .btn { display: inline-block; padding: 15px 30px; border-radius: 12px; font-size: 17px; font-weight: 700; text-decoration: none; border: none; cursor: pointer; }
+  .btn-primary { background: #00E676; color: #052e16; }
+  .btn-secondary { background: #1d4ed8; color: #fff; }
+  .demo { background: #020617; border: 1px solid #1e293b; border-radius: 20px; padding: 32px; margin: 30px auto 70px; max-width: 560px; text-align: center; }
+  .demo h2 { font-size: 26px; margin-bottom: 8px; }
+  .demo p { color: #94a3b8; font-size: 15px; }
+  .qr-wrapper { background: #fff; padding: 14px; border-radius: 16px; display: inline-block; margin: 18px 0 10px; }
+  .qr-wrapper img { display: block; width: 210px; height: 210px; }
+  .demo-hint { font-size: 13px; color: #64748b; min-height: 20px; }
+  #wall { margin-top: 18px; display: flex; flex-direction: column; gap: 10px; }
+  .wall-card { background: #0B1220; border: 1px solid #1e293b; border-left: 4px solid #00E676; border-radius: 10px; padding: 12px 14px; text-align: left; font-size: 15px; word-break: break-word; animation: pop .25s ease; }
+  .wall-card img { max-width: 100%; border-radius: 8px; display: block; }
+  .wall-card .meta { font-size: 12px; color: #64748b; margin-top: 6px; }
+  @keyframes pop { from { transform: scale(.92); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+  section { padding: 60px 20px; }
+  section h2 { font-size: 36px; text-align: center; margin-bottom: 40px; }
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; max-width: 1000px; margin: 0 auto; }
+  .step { background: #020617; padding: 28px; border-radius: 16px; text-align: center; }
+  .step-num { width: 46px; height: 46px; background: #00E676; color: #052e16; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 800; margin: 0 auto 14px; }
+  .step h3 { font-size: 19px; margin-bottom: 10px; }
+  .step p { color: #94a3b8; font-size: 15px; }
+  .pricing { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; max-width: 860px; margin: 0 auto; }
+  .plan { background: #020617; border: 2px solid #1e293b; border-radius: 20px; padding: 30px; position: relative; }
+  .plan.featured { border-color: #00E676; }
+  .plan-badge { position: absolute; top: -12px; right: 22px; background: #00E676; color: #052e16; padding: 5px 14px; border-radius: 20px; font-size: 13px; font-weight: 700; }
+  .plan h3 { font-size: 22px; }
+  .plan-price { font-size: 44px; font-weight: 800; margin: 12px 0; }
+  .plan-price small { font-size: 16px; font-weight: 400; color: #94a3b8; }
+  .plan ul { list-style: none; margin: 18px 0; }
+  .plan li { padding: 7px 0; color: #cbd5e1; font-size: 15px; }
+  .plan li::before { content: "✓ "; color: #00E676; font-weight: 700; }
+  .plan .btn { width: 100%; text-align: center; }
+  details { background: #020617; border: 1px solid #1e293b; border-radius: 12px; padding: 16px; margin-bottom: 10px; }
+  summary { cursor: pointer; font-weight: 700; }
+  details p { color: #94a3b8; margin-top: 10px; font-size: 15px; }
+  footer { text-align: center; padding: 36px 20px; color: #64748b; font-size: 14px; border-top: 1px solid #1e293b; }
+  footer a { color: #94a3b8; }
+  @media (max-width: 768px) { .hero h1 { font-size: 42px; } .hero p { font-size: 17px; } section h2 { font-size: 28px; } }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>ФЛИК<span>.</span></h1>
+  <p>Передай текст или картинку с телефона на компьютер одним движением. Без мессенджеров, без почты, без «скинь себе в телеграм».</p>
+  <div class="cta-group">
+    <a href="#demo" class="btn btn-primary">Попробовать прямо сейчас</a>
+    <a href="#download" class="btn btn-secondary">Скачать для Windows</a>
+  </div>
+</div>
+
+<div class="container">
+  <div class="demo" id="demo">
+    <h2>Живое демо</h2>
+    <p>1. Наведи камеру телефона на QR<br>2. Отправь любой текст или картинку<br>3. Смотри, как флик прилетает на эту страницу</p>
+    <div class="qr-wrapper"><img id="demo-qr" alt="QR-код демо-комнаты"></div>
+    <div class="demo-hint"><button id="snd-btn" style="background:none;border:1px solid #334155;color:#94a3b8;border-radius:8px;padding:4px 10px;font-size:12px;cursor:pointer;margin-bottom:6px">🔊 sound: on</button><div id="demo-timer"></div></div>
+    <div id="wall"></div>
+  </div>
+
+  <section>
+    <h2>Как это работает</h2>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><h3>Поставь Флик на ПК</h3><p>Windows-приложение с иконкой в трее. Регистрация — email и пароль, 20 секунд.</p></div>
+      <div class="step"><div class="step-num">2</div><h3>Отсканируй свой QR</h3><p>Приложение показывает персональный QR. Камера телефона — и устройства сопряжены навсегда.</p></div>
+      <div class="step"><div class="step-num">3</div><h3>Фликай</h3><p>Кнопка ФЛИК на телефоне — и текст уже в буфере обмена компьютера. Точно в курсор.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Тарифы</h2>
+    <div class="pricing">
+      <div class="plan">
+        <h3>Free</h3>
+        <div class="plan-price">0 ₽<small> навсегда</small></div>
+        <ul>
+          <li>Локально по Wi-Fi — безлимит</li>
+          <li>Через интернет — 10 фликов/день</li>
+          <li>Файлы до 5 МБ</li>
+          <li>1 компьютер</li>
+        </ul>
+        <a href="#download" class="btn btn-secondary">Скачать</a>
+      </div>
+      <div class="plan featured">
+        <div class="plan-badge">Выгоднее</div>
+        <h3>Pro</h3>
+        <div class="plan-price">199 ₽<small>/мес</small></div>
+        <ul>
+          <li>Безлимит фликов через интернет</li>
+          <li>Файлы до 50 МБ</li>
+          <li>До 3 компьютеров</li>
+          <li>Очередь 24 часа (ПК выключен — флик подождёт)</li>
+        </ul>
+        <a href="#download" class="btn btn-primary">Начать с trial 14 дней</a>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:20px;color:#94a3b8;">Год Pro: 1499 ₽ · Trial 14 дней безлимит для всех новых аккаунтов</p>
+  </section>
+
+  <section>
+    <h2>Вопросы и ответы</h2>
+    <div style="max-width:760px;margin:0 auto">
+      <details><summary>Это безопасно? Мои тексты кто-то читает?</summary><p>Нет. Содержимое шифруется на телефоне и расшифровывается только на твоём ПК (сквозное шифрование AES-256). Сервер видит только зашифрованные блоки и хранит их до 10 минут (Free) или 24 часов (Pro).</p></details>
+      <details><summary>Компьютер выключен. Флик пропадёт?</summary><p>Нет. Free хранит флик 10 минут, Pro — 24 часа. Включишь ПК — всё долетит.</p></details>
+      <details><summary>Работает ли без интернета?</summary><p>Да. Локальный режим по Wi-Fi бесплатен и безлимитен, аккаунт не нужен.</p></details>
+      <details><summary>Почему 10 фликов в день бесплатно?</summary><p>Это честный бесплатный минимум. Серверные мощности стоят денег; Pro окупает их и снимает все лимиты.</p></details>
+      <details><summary>Что нужно на телефоне?</summary><p>Ничего ставить не надо: камера и браузер. Совет: добавить страницу на домашний экран — будет как приложение.</p></details>
+      <details><summary>Какие компьютеры поддерживаются?</summary><p>Windows 10/11. Телефон — любой с камерой и браузером (iPhone, Android).</p></details>
+      <details><summary>Чем это лучше «отправить себе в Telegram»?</summary><p>Одним движением и точно в курсор. Без открытия мессенджера, поиска своего чата и копирования из него.</p></details>
+      <details><summary>Картинки и HEIC?</summary><p>Да, телефон сжимает их сам перед отправкой. Лимит: 5 МБ (Free), 50 МБ (Pro).</p></details>
+      <details><summary>Как отменить подписку?</summary><p>Автопродления нет: кончился срок — просто не платишь снова. Возврат за неиспользованные дни — письмом на hello@flikni.ru.</p></details>
+      <details><summary>QR попал в чужие руки. Что делать?</summary><p>В приложении: трей → «Выйти из аккаунта» или пересоздать устройство — старый QR умрёт, появится новый. Чужой с QR может только отправить тебе текст, но не прочитать твои данные.</p></details>
+    </div>
+  </section>
+
+  <section id="download">
+    <h2>Скачать Флик</h2>
+    <div style="text-align:center;max-width:520px;margin:0 auto;">
+      <p style="font-size:17px;color:#cbd5e1;margin-bottom:28px;">Приложение для Windows 10/11. После входа получишь свой персональный QR-код — и телефон станет пультом твоего компьютера.</p>
+      <a href="/files/Flik.exe" download class="btn btn-primary" style="font-size:19px;padding:18px 44px;">Скачать для Windows</a>
+      <p style="margin-top:14px;font-size:13px;color:#64748b;">v2.3 · ~15 МБ · бесплатно</p>
+      <p style="margin-top:18px;font-size:14px;color:#94a3b8;">Как получить заказ: после оплаты подписка Pro активируется автоматически в течение минуты; приложение для Windows скачивается по ссылке выше; чек приходит в электронном виде из системы «Мой налог».</p>
+    </div>
+  </section>
+</div>
+
+<footer>© 2026 Флик · flikni.ru · самозанятый Мусатов Р. Р., ИНН 504307861480 · <a href="/legal/terms.html">Соглашение</a> · <a href="/legal/offer.html">Оферта</a> · <a href="/legal/privacy.html">Конфиденциальность</a> · <a href="/legal/contacts.html">Контакты</a></footer>
+
+<script>
+function b64urlToBytes(s){
+  s = s.replace(/-/g,"+").replace(/_/g,"/");
+  while (s.length % 4) s += "=";
+  const bin = atob(s);
+  const b = new Uint8Array(bin.length);
+  for (let i=0;i<bin.length;i++) b[i] = bin.charCodeAt(i);
+  return b;
+}
+function b64ToBytes(s){
+  const bin = atob(s);
+  const b = new Uint8Array(bin.length);
+  for (let i=0;i<bin.length;i++) b[i] = bin.charCodeAt(i);
+  return b;
+}
+
+let DEMO = null;
+let demoKey = null;
+const seen = new Set();
+
+async function startDemo(){
+  try {
+    const saved = JSON.parse(sessionStorage.getItem("flik_demo") || "null");
+    if (saved && saved.expires * 1000 > Date.now() + 30000) {
+      DEMO = saved;
+    } else {
+      const r = await fetch("/api/demo", {method: "POST"});
+      DEMO = await r.json();
+      sessionStorage.setItem("flik_demo", JSON.stringify(DEMO));
+    }
+    demoKey = null;
+    seen.clear();
+    document.getElementById("demo-qr").src =
+      "/api/demo/qr.png?room=" + encodeURIComponent(DEMO.room) + "&key=" + encodeURIComponent(DEMO.key);
+    document.getElementById("wall").innerHTML = "";
+    pollInbox();
+  } catch(e) {
+    document.getElementById("demo-timer").textContent = "Демо временно недоступно";
+  }
+}
+
+async function getDemoKey(){
+  if (demoKey) return demoKey;
+  demoKey = await crypto.subtle.importKey("raw", b64urlToBytes(DEMO.key), {name:"AES-GCM"}, false, ["decrypt"]);
+  return demoKey;
+}
+
+async function pollInbox(){
+  if (!DEMO) return;
+  try {
+    const r = await fetch("/api/demo/inbox?room=" + encodeURIComponent(DEMO.room));
+    if (r.status === 410) { startDemo(); return; }
+    const d = await r.json();
+    const key = await getDemoKey();
+    for (const m of d.messages) {
+      if (seen.has(m.id)) continue;
+      seen.add(m.id);
+      const plain = await crypto.subtle.decrypt({name:"AES-GCM", iv: b64ToBytes(m.nonce)}, key, b64ToBytes(m.ct));
+      addCard(JSON.parse(new TextDecoder().decode(plain)));
+    }
+  } catch(e) {}
+  setTimeout(pollInbox, 2000);
+}
+
+function addCard(p){
+  const wall = document.getElementById("wall");
+  const card = document.createElement("div");
+  card.className = "wall-card";
+  if (p.t === "image") {
+    const img = document.createElement("img");
+    img.src = "data:" + (p.mime || "image/jpeg") + ";base64," + p.data;
+    card.appendChild(img);
+  } else {
+    card.appendChild(document.createTextNode(p.text || ""));
+  }
+  const meta = document.createElement("div");
+  meta.className = "meta";
+  meta.textContent = "флик получен · " + new Date().toLocaleTimeString();
+  card.appendChild(meta);
+  wall.prepend(card);
+  playRecv();
+  while (wall.children.length > 6) wall.removeChild(wall.lastChild);
+}
+
+function tickTimer(){
+  const el = document.getElementById("demo-timer");
+  if (!DEMO) { el.textContent = ""; return; }
+  const left = DEMO.expires - Math.floor(Date.now()/1000);
+  if (left <= 0) { el.textContent = "Комната истекла — создаю новую…"; startDemo(); return; }
+  const m = Math.floor(left/60), s = left%60;
+  el.textContent = "Демо-комната живёт ещё " + m + ":" + (s<10?"0":"") + s + " · флики видны только тебе";
+}
+
+
+
+const sndBtn = document.getElementById("snd-btn");
+function sndLabel(){ sndBtn.textContent = soundOn ? "🔊 sound: on" : "🔇 sound: off"; }
+sndBtn.addEventListener("click", () => {
+  soundOn = !soundOn;
+  localStorage.setItem("flik_sound", soundOn ? "1" : "0");
+  if (soundOn) { unlocked = true; try { ac(); playRecv(); } catch(e){} }
+  sndLabel();
+});
+sndLabel();
+
+let AC = null;
+let soundOn = localStorage.getItem("flik_sound") !== "0";
+let unlocked = false;
+function ac(){
+  if (!AC) {
+    try { AC = new (window.AudioContext || window.webkitAudioContext)(); }
+    catch(e){ return null; }
+  }
+  if (AC.state === "suspended") {
+    try { AC.resume(); } catch(e){}
+  }
+  return AC;
+}
+function unlockAudio(){
+  if (!unlocked && soundOn) {
+    unlocked = true;
+    try { ac(); } catch(e){}
+  }
+}
+["pointerdown","touchstart","touchend","click","keydown"].forEach(ev =>
+  document.addEventListener(ev, unlockAudio, {passive:true})
+);
+function noiseBurst(ctx, dur, vol){
+  const n = Math.floor(ctx.sampleRate * dur);
+  const buf = ctx.createBuffer(1, n, ctx.sampleRate);
+  const d = buf.getChannelData(0);
+  let prev = 0;
+  for (let i = 0; i < n; i++){
+    const x = Math.random()*2-1;
+    d[i] = (x - prev) * (1 - i/n);
+    prev = x;
+  }
+  const src = ctx.createBufferSource();
+  src.buffer = buf;
+  const g = ctx.createGain();
+  g.gain.value = vol;
+  src.connect(g);
+  g.connect(ctx.destination);
+  src.start();
+}
+function playSend(){
+  if (!soundOn) return;
+  unlocked = true;
+  const ctx = ac();
+  if (!ctx) return;
+  const t = ctx.currentTime;
+  noiseBurst(ctx, 0.04, 0.18);
+  const o = ctx.createOscillator();
+  const g = ctx.createGain();
+  o.type = "sine";
+  o.frequency.setValueAtTime(600, t + 0.04);
+  o.frequency.linearRampToValueAtTime(1400, t + 0.35);
+  g.gain.setValueAtTime(0.0001, t + 0.04);
+  g.gain.linearRampToValueAtTime(0.25, t + 0.05);
+  g.gain.setValueAtTime(0.25, t + 0.34);
+  g.gain.linearRampToValueAtTime(0.0001, t + 0.35);
+  o.connect(g);
+  g.connect(ctx.destination);
+  o.start(t + 0.04);
+  o.stop(t + 0.36);
+}
+function playRecv(){
+  if (!soundOn || !unlocked) return;
+  const ctx = ac();
+  if (!ctx) return;
+  const t = ctx.currentTime;
+  noiseBurst(ctx, 0.015, 0.45);
+  const o = ctx.createOscillator();
+  const o2 = ctx.createOscillator();
+  const g = ctx.createGain();
+  const g2 = ctx.createGain();
+  o.type = "sine";
+  o.frequency.value = 660;
+  o2.type = "sine";
+  o2.frequency.value = 1760;
+  g2.gain.value = 0.35;
+  g.gain.setValueAtTime(0.0001, t + 0.015);
+  g.gain.linearRampToValueAtTime(0.28, t + 0.018);
+  g.gain.exponentialRampToValueAtTime(0.0001, t + 0.22);
+  o.connect(g);
+  o2.connect(g2);
+  g2.connect(g);
+  g.connect(ctx.destination);
+  o.start(t + 0.015);
+  o2.start(t + 0.015);
+  o.stop(t + 0.23);
+  o2.stop(t + 0.23);
+}
+
+
+startDemo();
+setInterval(tickTimer, 1000);
+</script>
+</body>
+</html>
