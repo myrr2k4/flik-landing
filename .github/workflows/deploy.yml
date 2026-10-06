@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
-      - name: Deploy to VPS
+      - name: Deploy landing.html to VPS
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.VPS_HOST }}
@@ -29,4 +29,4 @@ jobs:
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
             systemctl restart flik
-            echo "Deployed at $(date)"
+            echo "✅ Landing deployed at $(date)"
